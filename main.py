@@ -7,15 +7,9 @@ optional_words = words.words()
 os.system("clear")
 
 words = []
-
-for word in optional_words:
-  if len(word) == 5:
-    words.append(word)
-
-word = random.choice(words)
 while True:
   print("\033[1;32mW\033[1;33mo\033[1;37mr\033[1;32md\033[33ml\033[1;37me\033[0m  BY ROGFE2\n")
-  start = input("Start (Y/N): ").lower()
+  length = int(input("Length: "))
   os.system("clear")
   if start not in ["y", "n"]:
     print("Not an option! Must be a Y or a N.")
@@ -23,6 +17,12 @@ while True:
     exit()
   else:
     break
+
+for word in optional_words:
+  if len(word) == length:
+    words.append(word)
+
+word = random.choice(words)
 guessed_words = []
 while True:
   print("\033[1;32mW\033[1;33mo\033[1;37mr\033[1;32md\033[33ml\033[1;37me\033[0m  BY ROGFE2\n")
