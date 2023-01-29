@@ -11,12 +11,7 @@ while True:
   print("\033[1;32mW\033[1;33mo\033[1;37mr\033[1;32md\033[33ml\033[1;37me\033[0m  BY ROGFE2\n")
   length = int(input("Length: "))
   os.system("clear")
-  if start not in ["y", "n"]:
-    print("Not an option! Must be a Y or a N.")
-  elif start == "n":
-    exit()
-  else:
-    break
+  break
 
 for word in optional_words:
   if len(word) == length:
@@ -27,8 +22,10 @@ guessed_words = []
 while True:
   print("\033[1;32mW\033[1;33mo\033[1;37mr\033[1;32md\033[33ml\033[1;37me\033[0m  BY ROGFE2\n")
   if len(guessed_words) == 6:
-    print(f"The word was {word}")
-    break
+    while True:
+      print(f"The word was {word}")
+      time.sleep(1)
+      os.system("clear")
   elif len(guessed_words) == 0:
     pass
   else:
@@ -57,9 +54,12 @@ while True:
     print("Already guessed!")
     time.sleep(1)
     os.system("clear")
-  elif len(guess) != 5:
-    print("Must be 5 letters long")
+  elif len(guess) != length:
+    print(f"Must be {length} letter(s) long")
+    time.sleep(1)
+    os.system("clear")
   else:
     guessed_words.append(guess)
   if guess == word:
+    print("You got it! Well done!")
     break
